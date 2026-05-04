@@ -1,0 +1,19 @@
+name: Unit Tests
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest (sum test)
+        run: npm test ./__tests__/sum.test.js
+
+      - name: Run Jest (unit tests)
+        run: npm test ./__tests__/unit.test.js
